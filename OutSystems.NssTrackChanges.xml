@@ -1,0 +1,433 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OutSystems.NssTrackChanges</name>
+    </assembly>
+    <members>
+        <member name="M:OutSystems.NssTrackChanges.CssTrackChanges.MssGetDiff(System.String,System.String,OutSystems.NssTrackChanges.RLIgnoreItemRecordList,OutSystems.NssTrackChanges.RCObjectChangedErrorRecord@)">
+            <summary>
+            . Obtains the difference between two JSON objects, either an Entity or a Structure. .
+            </summary>
+            <param name="ssOriginalObject">. Object in its original state (no change). .</param>
+            <param name="ssModifiedObject">. Object in its modified state (with change). .</param>
+            <param name="ssIgnoreItems">. List of items / attributes to be ignored by the comparison...</param>
+            <param name="ssResultProcessing">. Object containing attributes that have different values between the Original and Modified states or when there is an error, it returns true and the error message.</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.IssTrackChanges.MssGetDiff(System.String,System.String,OutSystems.NssTrackChanges.RLIgnoreItemRecordList,OutSystems.NssTrackChanges.RCObjectChangedErrorRecord@)">
+            <summary>
+            . Obtains the difference between two JSON objects, either an Entity or a Structure. .
+            </summary>
+            <param name="ssOriginalObject">. Object in its original state (no change). .</param>
+            <param name="ssModifiedObject">. Object in its modified state (with change). .</param>
+            <param name="ssIgnoreItems">. List of items / attributes to be ignored by the comparison. .</param>
+            <param name="ssResultProcessing">. Object containing attributes that have different values between the Original and Modified states or when there is an error, it returns true and the error message.
+            </param>
+        </member>
+        <member name="T:OutSystems.NssTrackChanges.STIgnoreItemStructure">
+            <summary>
+            Structure <code>STIgnoreItemStructure</code> that represents the Service Studio structure
+             <code>IgnoreItem</code> <p> Description: . Item to be ignored by comparison. .</p>
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.STIgnoreItemStructure.Read(System.Data.IDataReader,System.Int32@)">
+            <summary>
+            Read a record from database
+            </summary>
+            <param name="r"> Data base reader</param>
+            <param name="index"> index</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.STIgnoreItemStructure.ReadDB(System.Data.IDataReader)">
+            <summary>
+            Read from database
+            </summary>
+            <param name="r"> Data reader</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.STIgnoreItemStructure.ReadIM(OutSystems.NssTrackChanges.STIgnoreItemStructure)">
+            <summary>
+            Read from record
+            </summary>
+            <param name="r"> Record</param>
+        </member>
+        <member name="T:OutSystems.NssTrackChanges.STItemChangedStructure">
+            <summary>
+            Structure <code>STItemChangedStructure</code> that represents the Service Studio structure
+             <code>ItemChanged</code> <p> Description: . Structure that contains the list of items / attribute
+            s with different values between the Original and Modified states. .</p>
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.STItemChangedStructure.Read(System.Data.IDataReader,System.Int32@)">
+            <summary>
+            Read a record from database
+            </summary>
+            <param name="r"> Data base reader</param>
+            <param name="index"> index</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.STItemChangedStructure.ReadDB(System.Data.IDataReader)">
+            <summary>
+            Read from database
+            </summary>
+            <param name="r"> Data reader</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.STItemChangedStructure.ReadIM(OutSystems.NssTrackChanges.STItemChangedStructure)">
+            <summary>
+            Read from record
+            </summary>
+            <param name="r"> Record</param>
+        </member>
+        <member name="T:OutSystems.NssTrackChanges.STObjectChangedStructure">
+            <summary>
+            Structure <code>STObjectChangedStructure</code> that represents the Service Studio structure
+             <code>ObjectChanged</code> <p> Description: . Structure that contains the attributes / fields wit
+            h different values between the Original and Modified states. .</p>
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.STObjectChangedStructure.Read(System.Data.IDataReader,System.Int32@)">
+            <summary>
+            Read a record from database
+            </summary>
+            <param name="r"> Data base reader</param>
+            <param name="index"> index</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.STObjectChangedStructure.ReadDB(System.Data.IDataReader)">
+            <summary>
+            Read from database
+            </summary>
+            <param name="r"> Data reader</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.STObjectChangedStructure.ReadIM(OutSystems.NssTrackChanges.STObjectChangedStructure)">
+            <summary>
+            Read from record
+            </summary>
+            <param name="r"> Record</param>
+        </member>
+        <member name="T:OutSystems.NssTrackChanges.STErrorStructure">
+            <summary>
+            Structure <code>STErrorStructure</code> that represents the Service Studio structure
+             <code>Error</code> <p> Description: . Error structure. .</p>
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.STErrorStructure.Read(System.Data.IDataReader,System.Int32@)">
+            <summary>
+            Read a record from database
+            </summary>
+            <param name="r"> Data base reader</param>
+            <param name="index"> index</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.STErrorStructure.ReadDB(System.Data.IDataReader)">
+            <summary>
+            Read from database
+            </summary>
+            <param name="r"> Data reader</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.STErrorStructure.ReadIM(OutSystems.NssTrackChanges.STErrorStructure)">
+            <summary>
+            Read from record
+            </summary>
+            <param name="r"> Record</param>
+        </member>
+        <member name="T:OutSystems.NssTrackChanges.RCIgnoreItemRecord">
+            <summary>
+            Structure <code>RCIgnoreItemRecord</code>
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RCIgnoreItemRecord.Read(System.Data.IDataReader,System.Int32@)">
+            <summary>
+            Read a record from database
+            </summary>
+            <param name="r"> Data base reader</param>
+            <param name="index"> index</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RCIgnoreItemRecord.ReadDB(System.Data.IDataReader)">
+            <summary>
+            Read from database
+            </summary>
+            <param name="r"> Data reader</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RCIgnoreItemRecord.ReadIM(OutSystems.NssTrackChanges.RCIgnoreItemRecord)">
+            <summary>
+            Read from record
+            </summary>
+            <param name="r"> Record</param>
+        </member>
+        <member name="T:OutSystems.NssTrackChanges.RCItemChangedRecord">
+            <summary>
+            Structure <code>RCItemChangedRecord</code>
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RCItemChangedRecord.Read(System.Data.IDataReader,System.Int32@)">
+            <summary>
+            Read a record from database
+            </summary>
+            <param name="r"> Data base reader</param>
+            <param name="index"> index</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RCItemChangedRecord.ReadDB(System.Data.IDataReader)">
+            <summary>
+            Read from database
+            </summary>
+            <param name="r"> Data reader</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RCItemChangedRecord.ReadIM(OutSystems.NssTrackChanges.RCItemChangedRecord)">
+            <summary>
+            Read from record
+            </summary>
+            <param name="r"> Record</param>
+        </member>
+        <member name="T:OutSystems.NssTrackChanges.RCObjectChangedRecord">
+            <summary>
+            Structure <code>RCObjectChangedRecord</code>
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RCObjectChangedRecord.Read(System.Data.IDataReader,System.Int32@)">
+            <summary>
+            Read a record from database
+            </summary>
+            <param name="r"> Data base reader</param>
+            <param name="index"> index</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RCObjectChangedRecord.ReadDB(System.Data.IDataReader)">
+            <summary>
+            Read from database
+            </summary>
+            <param name="r"> Data reader</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RCObjectChangedRecord.ReadIM(OutSystems.NssTrackChanges.RCObjectChangedRecord)">
+            <summary>
+            Read from record
+            </summary>
+            <param name="r"> Record</param>
+        </member>
+        <member name="T:OutSystems.NssTrackChanges.RCErrorRecord">
+            <summary>
+            Structure <code>RCErrorRecord</code>
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RCErrorRecord.Read(System.Data.IDataReader,System.Int32@)">
+            <summary>
+            Read a record from database
+            </summary>
+            <param name="r"> Data base reader</param>
+            <param name="index"> index</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RCErrorRecord.ReadDB(System.Data.IDataReader)">
+            <summary>
+            Read from database
+            </summary>
+            <param name="r"> Data reader</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RCErrorRecord.ReadIM(OutSystems.NssTrackChanges.RCErrorRecord)">
+            <summary>
+            Read from record
+            </summary>
+            <param name="r"> Record</param>
+        </member>
+        <member name="T:OutSystems.NssTrackChanges.RCObjectChangedErrorRecord">
+            <summary>
+            Structure <code>RCObjectChangedErrorRecord</code>
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RCObjectChangedErrorRecord.Read(System.Data.IDataReader,System.Int32@)">
+            <summary>
+            Read a record from database
+            </summary>
+            <param name="r"> Data base reader</param>
+            <param name="index"> index</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RCObjectChangedErrorRecord.ReadDB(System.Data.IDataReader)">
+            <summary>
+            Read from database
+            </summary>
+            <param name="r"> Data reader</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RCObjectChangedErrorRecord.ReadIM(OutSystems.NssTrackChanges.RCObjectChangedErrorRecord)">
+            <summary>
+            Read from record
+            </summary>
+            <param name="r"> Record</param>
+        </member>
+        <member name="T:OutSystems.NssTrackChanges.RLIgnoreItemRecordList">
+            <summary>
+            RecordList type <code>RLIgnoreItemRecordList</code> that represents a record list of
+             <code>IgnoreItem</code>
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLIgnoreItemRecordList.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLIgnoreItemRecordList.#ctor(System.Data.IDbTransaction)">
+            <summary>
+            Constructor with transaction parameter
+            </summary>
+            <param name="trans"> IDbTransaction Parameter</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLIgnoreItemRecordList.#ctor(System.Data.IDbTransaction,OutSystems.HubEdition.RuntimePlatform.Db.OSList{OutSystems.NssTrackChanges.RCIgnoreItemRecord}.ReadDBMethodDelegate)">
+            <summary>
+            Constructor with transaction parameter and alternate read method
+            </summary>
+            <param name="trans"> IDbTransaction Parameter</param>
+            <param name="alternateReadDBMethod"> Alternate Read Method</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLIgnoreItemRecordList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor declaration for serialization
+            </summary>
+            <param name="info"> SerializationInfo</param>
+            <param name="context"> StreamingContext</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLIgnoreItemRecordList.NewList">
+            <summary>
+            Create as new list
+            </summary>
+            <returns>The new record list</returns>
+        </member>
+        <member name="T:OutSystems.NssTrackChanges.RLItemChangedRecordList">
+            <summary>
+            RecordList type <code>RLItemChangedRecordList</code> that represents a record list of
+             <code>ItemChanged</code>
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLItemChangedRecordList.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLItemChangedRecordList.#ctor(System.Data.IDbTransaction)">
+            <summary>
+            Constructor with transaction parameter
+            </summary>
+            <param name="trans"> IDbTransaction Parameter</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLItemChangedRecordList.#ctor(System.Data.IDbTransaction,OutSystems.HubEdition.RuntimePlatform.Db.OSList{OutSystems.NssTrackChanges.RCItemChangedRecord}.ReadDBMethodDelegate)">
+            <summary>
+            Constructor with transaction parameter and alternate read method
+            </summary>
+            <param name="trans"> IDbTransaction Parameter</param>
+            <param name="alternateReadDBMethod"> Alternate Read Method</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLItemChangedRecordList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor declaration for serialization
+            </summary>
+            <param name="info"> SerializationInfo</param>
+            <param name="context"> StreamingContext</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLItemChangedRecordList.NewList">
+            <summary>
+            Create as new list
+            </summary>
+            <returns>The new record list</returns>
+        </member>
+        <member name="T:OutSystems.NssTrackChanges.RLObjectChangedRecordList">
+            <summary>
+            RecordList type <code>RLObjectChangedRecordList</code> that represents a record list of
+             <code>ObjectChanged</code>
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLObjectChangedRecordList.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLObjectChangedRecordList.#ctor(System.Data.IDbTransaction)">
+            <summary>
+            Constructor with transaction parameter
+            </summary>
+            <param name="trans"> IDbTransaction Parameter</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLObjectChangedRecordList.#ctor(System.Data.IDbTransaction,OutSystems.HubEdition.RuntimePlatform.Db.OSList{OutSystems.NssTrackChanges.RCObjectChangedRecord}.ReadDBMethodDelegate)">
+            <summary>
+            Constructor with transaction parameter and alternate read method
+            </summary>
+            <param name="trans"> IDbTransaction Parameter</param>
+            <param name="alternateReadDBMethod"> Alternate Read Method</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLObjectChangedRecordList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor declaration for serialization
+            </summary>
+            <param name="info"> SerializationInfo</param>
+            <param name="context"> StreamingContext</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLObjectChangedRecordList.NewList">
+            <summary>
+            Create as new list
+            </summary>
+            <returns>The new record list</returns>
+        </member>
+        <member name="T:OutSystems.NssTrackChanges.RLErrorRecordList">
+            <summary>
+            RecordList type <code>RLErrorRecordList</code> that represents a record list of <code>Error</code>
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLErrorRecordList.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLErrorRecordList.#ctor(System.Data.IDbTransaction)">
+            <summary>
+            Constructor with transaction parameter
+            </summary>
+            <param name="trans"> IDbTransaction Parameter</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLErrorRecordList.#ctor(System.Data.IDbTransaction,OutSystems.HubEdition.RuntimePlatform.Db.OSList{OutSystems.NssTrackChanges.RCErrorRecord}.ReadDBMethodDelegate)">
+            <summary>
+            Constructor with transaction parameter and alternate read method
+            </summary>
+            <param name="trans"> IDbTransaction Parameter</param>
+            <param name="alternateReadDBMethod"> Alternate Read Method</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLErrorRecordList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor declaration for serialization
+            </summary>
+            <param name="info"> SerializationInfo</param>
+            <param name="context"> StreamingContext</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLErrorRecordList.NewList">
+            <summary>
+            Create as new list
+            </summary>
+            <returns>The new record list</returns>
+        </member>
+        <member name="T:OutSystems.NssTrackChanges.RLObjectChangedErrorRecordList">
+            <summary>
+            RecordList type <code>RLObjectChangedErrorRecordList</code> that represents a record list of
+             <code>ObjectChanged, Error</code>
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLObjectChangedErrorRecordList.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLObjectChangedErrorRecordList.#ctor(System.Data.IDbTransaction)">
+            <summary>
+            Constructor with transaction parameter
+            </summary>
+            <param name="trans"> IDbTransaction Parameter</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLObjectChangedErrorRecordList.#ctor(System.Data.IDbTransaction,OutSystems.HubEdition.RuntimePlatform.Db.OSList{OutSystems.NssTrackChanges.RCObjectChangedErrorRecord}.ReadDBMethodDelegate)">
+            <summary>
+            Constructor with transaction parameter and alternate read method
+            </summary>
+            <param name="trans"> IDbTransaction Parameter</param>
+            <param name="alternateReadDBMethod"> Alternate Read Method</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLObjectChangedErrorRecordList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor declaration for serialization
+            </summary>
+            <param name="info"> SerializationInfo</param>
+            <param name="context"> StreamingContext</param>
+        </member>
+        <member name="M:OutSystems.NssTrackChanges.RLObjectChangedErrorRecordList.NewList">
+            <summary>
+            Create as new list
+            </summary>
+            <returns>The new record list</returns>
+        </member>
+    </members>
+</doc>
